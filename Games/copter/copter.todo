@@ -1,0 +1,26 @@
+copter:
+  ✔ Study about canvas. @done(2017-12-25 17:32) @project(copter)
+  ✔ List out the components of game. @done(2017-12-25 17:35) @project(copter)
+  ✔ List out the controllers. @done(2017-12-25 17:35) @project(copter)
+  ✔ List out the obstacles. @done(2017-12-25 17:54) @project(copter)
+  ☐ Design the view.
+  ☐ Design the model.
+  ☐ Assemble it with controller.
+
+components:
+  ✔ Game area (canvas) @done(2017-12-25 20:07) @project(components)
+  ✔ helicopter @done(2017-12-25 20:07) @project(components)
+
+controllers:
+  ☐ left mouse click or space button
+
+Obstacles:
+  ☐ wall at top and bottom
+  ☐ rectangle blocks
+
+Others:
+  ☐ Game score
+  ☐ Best score
+  ☐ Images
+  ☐ Sound
+  ☐ Gravity
