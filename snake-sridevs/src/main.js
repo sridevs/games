@@ -88,8 +88,9 @@ function startAgain() {
 function playAgain() {
   let button = document.createElement("button");
   let buttonName = document.createTextNode("Play Again");
+  let hiddenTail = document.getElementById("hidden_tail");
   button.appendChild(buttonName);
-  document.body.appendChild(button);
+  hiddenTail.appendChild(button);
   button.addEventListener ("click", startAgain);
 }
 
