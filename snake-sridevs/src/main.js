@@ -4,6 +4,14 @@ let numberOfRows=60;
 let numberOfCols=120;
 
 let animator=undefined;
+let loosingXcoords = [0,120];
+let loosingYcoords = [0,60];
+
+const hasCrashed = function (head) {
+  let posX = head.getCoord()[0];
+  let posY = head.getCoord()[1];
+  return loosingXcoords.includes(posX) || loosingYcoords.includes(posY);
+}
 
 const animateSnake=function() {
   let oldHead=snake.getHead();
@@ -16,6 +24,10 @@ const animateSnake=function() {
     snake.grow();
     createFood(numberOfRows,numberOfCols);
     drawFood(food);
+  }
+  if (hasCrashed(head)) {
+    stopGame();
+    playAgain();
   }
 }
 
@@ -54,15 +66,15 @@ const createFood=function(numberOfRows,numberOfCols) {
   food=generateRandomPosition(numberOfCols,numberOfRows);
 }
 
-const stopGame = function () {
+function stopGame() {
   clearInterval(animator);
 }
 
-const startAgain = function () {
+function startAgain() {
  location.reload();
 }
 
-const playAgain = function () {
+function playAgain() {
   let button = document.createElement("button");
   let buttonName = document.createTextNode("Play Again");
   button.appendChild(buttonName);
