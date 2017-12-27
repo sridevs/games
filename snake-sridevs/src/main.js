@@ -13,6 +13,13 @@ const hasCrashed = function (head) {
   return loosingXcoords.includes(posX) || loosingYcoords.includes(posY);
 }
 
+const eatsItself = function (head) {
+  let snakeBody = snake.getBody();
+  return snakeBody.some(function (bodyPart) {
+    return head.isSameCoordAs(bodyPart);
+  });
+}
+
 const animateSnake=function() {
   let oldHead=snake.getHead();
   let oldTail=snake.move();
@@ -26,6 +33,10 @@ const animateSnake=function() {
     drawFood(food);
   }
   if (hasCrashed(head)) {
+    stopGame();
+    playAgain();
+  }
+  if (eatsItself(head)) {
     stopGame();
     playAgain();
   }
