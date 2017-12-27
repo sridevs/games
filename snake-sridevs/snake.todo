@@ -1,0 +1,13 @@
+Objective:
+  ☐ detect the end of the game.
+  ☐ offer user to play again.
+
+GameEndingScenarios:
+  ☐ the snake hits any edges of viewport.
+  ☐ the snake eats itself.
+
+todo:
+  ✔ write a function to stop the game. @done(2017-12-27 12:21) @project(todo)
+  ☐ write a function for play again once game stops.
+  ☐ check snakes position with edges.
+  ☐ check snakes position with itself.

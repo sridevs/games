@@ -1,4 +1,4 @@
-let GameSpace = function (width,height) {
+function GameSpace(width,height) {
   this.canvas = document.createElement("canvas");
   this.canvas.width = width;
   this.canvas.height = height;
@@ -19,7 +19,10 @@ GameSpace.prototype.stop = function () {
   clearInterval(this.interval);
 };
 
-let Component = function (width,height,color,posX,posY,type) {
+let myGameSpace = new GameSpace(1280,720);
+let copter = new Component(350, 172, "images/copter.gif", 10, 120,"image");
+
+function Component(width,height,color,posX,posY,type) {
   this.type = type;
   if (this.type === "image") {
     this.image = new Image();
@@ -29,11 +32,8 @@ let Component = function (width,height,color,posX,posY,type) {
   this.height = height;
   this.posX = posX;
   this.posY = posY;
-  this.speedX = 0.1;
-  this.gravity = 0.05;
-  context = myGameSpace.context;
-  context.fillStyle = color;
-  context.fillRect(this.x, this.y, this.width, this.height);
+  this.speedX = 0;
+  this.gravity = 0;
 };
 
 Component.prototype.update = function () {
@@ -51,13 +51,10 @@ Component.prototype.newPos = function () {
   this.posY += this.gravity;
 };
 
-let myGameSpace = new GameSpace(1280,720);
-let copter = new Component(350, 172, "images/copter.gif", 10, 120,"image");
-let myObstacles = [];
-let myScore = new Component("30px", "Consolas", "black", 280, 40, "text");
+// let myObstacles = [];
+// let myScore = new Component("30px", "Consolas", "black", 280, 40, "text");
 
 function startGame() {
-  copter.gravity = 0.05;
   myGameSpace.start();
 };
 
