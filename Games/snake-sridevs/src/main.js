@@ -4,8 +4,8 @@ let numberOfRows=60;
 let numberOfCols=120;
 
 let animator=undefined;
-let loosingXcoords = [0,120];
-let loosingYcoords = [0,60];
+let loosingXcoords = [0,numberOfCols];
+let loosingYcoords = [0,numberOfRows];
 
 const hasCrashed = function (head) {
   let posX = head.getCoord()[0];
@@ -13,11 +13,8 @@ const hasCrashed = function (head) {
   return loosingXcoords.includes(posX) || loosingYcoords.includes(posY);
 }
 
-const eatsItself = function (head) {
-  let snakeBody = snake.getBody();
-  return snakeBody.some(function (bodyPart) {
-    return head.isSameCoordAs(bodyPart);
-  });
+const isSnakeDead = function (head) {
+  return hasCrashed(head) || snake.ateItself();
 }
 
 const animateSnake=function() {
@@ -32,11 +29,7 @@ const animateSnake=function() {
     createFood(numberOfRows,numberOfCols);
     drawFood(food);
   }
-  if (hasCrashed(head)) {
-    stopGame();
-    playAgain();
-  }
-  if (eatsItself(head)) {
+  if (isSnakeDead(head)) {
     stopGame();
     playAgain();
   }
