@@ -58,6 +58,18 @@ const stopGame = function () {
   clearInterval(animator);
 }
 
+const startAgain = function () {
+ location.reload();
+}
+
+const playAgain = function () {
+  let button = document.createElement("button");
+  let buttonName = document.createTextNode("Play Again");
+  button.appendChild(buttonName);
+  document.body.appendChild(button);
+  button.addEventListener ("click", startAgain);
+}
+
 const startGame=function() {
   createSnake();
   drawGrids(numberOfRows,numberOfCols);
